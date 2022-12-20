@@ -2,12 +2,17 @@
   "item.cardinalheroes.zircon": "Zircon",
   "item.cardinalheroes.raw_zircon": "Raw Zircon",
   "item.cardinalheroes.eight_ball": "Eight Ball",
+  "item.cardinalheroes.blueberry": "Blueberry",
+  "item.cardinalheroes.blueberry_seeds": "Blueberry Seeds",
 
   "block.cardinalheroes.zircon_block": "Block of Zircon",
   "block.cardinalheroes.zircon_ore": "Zircon Ore",
   "block.cardinalheroes.deepslate_zircon_ore": "Deepslate Zircon Ore",
   "block.cardinalheroes.jumpy_block": "Jumpy Block",
+  "block.cardinalheroes.zircon_lamp": "Zircon Lamp",
+  "block.cardinalheroes.blueberry_crop": "Blueberry Crop",
 
-  "itemGroup.cardinalheroestab": "Cardinal Heroes Tab"
+  "itemGroup.cardinalheroestab": "Cardinal Heroes Tab",
+  "entity.minecraft.villager.cardinalheroes.jumpy_master": "Jumpy Master"
 
 }
