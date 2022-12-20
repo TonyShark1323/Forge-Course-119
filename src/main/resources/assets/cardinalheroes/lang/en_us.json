@@ -1,5 +1,11 @@
 {
   "item.cardinalheroes.zircon": "Zircon",
-  "item.cardinalheroes.raw_zircon": "Raw Zircon"
+  "item.cardinalheroes.raw_zircon": "Raw Zircon",
+
+  "block.cardinalheroes.zircon_block": "Block of Zircon",
+  "block.cardinalheroes.zircon_ore": "Zircon Ore",
+  "block.cardinalheroes.deepslate_zircon_ore": "Deepslate Zircon Ore",
+
+  "itemGroup.cardinalheroestab": "Cardinal Heroes Tab"
 
 }
