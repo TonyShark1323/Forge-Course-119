@@ -3,6 +3,8 @@
   "values": [
     "cardinalheroes:zircon_ore",
     "cardinalheroes:zircon_block",
-    "cardinalheroes:deepslate_zircon_ore"
+    "cardinalheroes:deepslate_zircon_ore",
+    "cardinalheroes:endstone_zircon_ore",
+    "cardinalheroes:netherrack_zircon_ore"
   ]
 }

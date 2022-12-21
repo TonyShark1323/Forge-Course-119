@@ -12,8 +12,11 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.tonyshark.cardinalheroes.block.ModBlocks;
 import net.tonyshark.cardinalheroes.item.ModItems;
+import net.tonyshark.cardinalheroes.networking.ModMessages;
 import net.tonyshark.cardinalheroes.painting.ModPaintings;
 import net.tonyshark.cardinalheroes.villager.ModVillagers;
+import net.tonyshark.cardinalheroes.world.feature.ModConfiguredFeatures;
+import net.tonyshark.cardinalheroes.world.feature.ModPlacedFeatures;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -29,6 +32,8 @@ public class CardinalHeroes {
         ModBlocks.register(modEventBus);
         ModVillagers.register(modEventBus);
         ModPaintings.register(modEventBus);
+        ModConfiguredFeatures.register(modEventBus);
+        ModPlacedFeatures.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -39,6 +44,8 @@ public class CardinalHeroes {
         event.enqueueWork(() -> {
             ModVillagers.registerPOIs();
         });
+
+        ModMessages.register();
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
@@ -46,7 +53,6 @@ public class CardinalHeroes {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLUEBERRY_CROP.get(), RenderType.cutout());
         }
     }
 }

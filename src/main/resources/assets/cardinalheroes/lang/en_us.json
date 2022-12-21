@@ -8,11 +8,20 @@
   "block.cardinalheroes.zircon_block": "Block of Zircon",
   "block.cardinalheroes.zircon_ore": "Zircon Ore",
   "block.cardinalheroes.deepslate_zircon_ore": "Deepslate Zircon Ore",
+  "block.cardinalheroes.endstone_zircon_ore": "Endstone Zircon Ore",
+  "block.cardinalheroes.netherrack_zircon_ore": "Netherrack Zircon Ore",
   "block.cardinalheroes.jumpy_block": "Jumpy Block",
   "block.cardinalheroes.zircon_lamp": "Zircon Lamp",
   "block.cardinalheroes.blueberry_crop": "Blueberry Crop",
 
   "itemGroup.cardinalheroestab": "Cardinal Heroes Tab",
-  "entity.minecraft.villager.cardinalheroes.jumpy_master": "Jumpy Master"
+  "entity.minecraft.villager.cardinalheroes.jumpy_master": "Jumpy Master",
+
+  "key.category.cardinalheroes.tutorial": "Cardinal Heroes Mod",
+  "key.cardinalheroes.drink_water": "Drink Water",
+
+  "message.cardinalheroes.drink_water": "Drinking water",
+  "message.cardinalheroes.no_water": "No Water nearby"
+
 
 }
