@@ -14,6 +14,7 @@ import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -22,6 +23,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.tonyshark.cardinalheroes.CardinalHeroes;
 import net.tonyshark.cardinalheroes.item.ModItems;
 import net.tonyshark.cardinalheroes.networking.ModMessages;
+import net.tonyshark.cardinalheroes.networking.packet.ThirstDataSyncS2CPacket;
 import net.tonyshark.cardinalheroes.thirst.PlayerThirst;
 import net.tonyshark.cardinalheroes.thirst.PlayerThirstProvider;
 import net.tonyshark.cardinalheroes.villager.ModVillagers;
@@ -84,12 +86,21 @@ public class ModEvents {
             event.player.getCapability(PlayerThirstProvider.PLAYER_THIRST).ifPresent(thirst -> {
                 if(thirst.getThirst() > 0 && event.player.getRandom().nextFloat() < 0.005f) { // Once Every 10 Seconds on Avg
                     thirst.subThirst(1);
-                    event.player.sendSystemMessage(Component.literal("Subtracted Thirst"));
-                    //ModMessages.sendToPlayer(new ThirstDataSyncS2CPacket(thirst.getThirst()), ((ServerPlayer) event.player));
+                    ModMessages.sendToPlayer(new ThirstDataSyncS2CPacket(thirst.getThirst()), ((ServerPlayer) event.player));
                 }
             });
         }
     }
 
+    @SubscribeEvent
+    public static void onPlayerJoinWorld(EntityJoinLevelEvent event) {
+        if(!event.getLevel().isClientSide()) {
+            if(event.getEntity() instanceof ServerPlayer player) {
+                player.getCapability(PlayerThirstProvider.PLAYER_THIRST).ifPresent(thirst -> {
+                    ModMessages.sendToPlayer(new ThirstDataSyncS2CPacket(thirst.getThirst()), player);
+                });
+            }
+        }
+    }
 
 }

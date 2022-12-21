@@ -9,6 +9,7 @@ import net.minecraftforge.network.simple.SimpleChannel;
 import net.tonyshark.cardinalheroes.CardinalHeroes;
 import net.tonyshark.cardinalheroes.networking.packet.DrinkWaterC2SPacket;
 import net.tonyshark.cardinalheroes.networking.packet.ExampleC2SPacket;
+import net.tonyshark.cardinalheroes.networking.packet.ThirstDataSyncS2CPacket;
 
 public class ModMessages {
     private static SimpleChannel INSTANCE;
@@ -38,6 +39,12 @@ public class ModMessages {
                 .decoder(DrinkWaterC2SPacket::new)
                 .encoder(DrinkWaterC2SPacket::toBytes)
                 .consumerMainThread(DrinkWaterC2SPacket::handle)
+                .add();
+
+        net.messageBuilder(ThirstDataSyncS2CPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(ThirstDataSyncS2CPacket::new)
+                .encoder(ThirstDataSyncS2CPacket::toBytes)
+                .consumerMainThread(ThirstDataSyncS2CPacket::handle)
                 .add();
     }
 
